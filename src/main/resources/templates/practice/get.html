@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<div>社員情報を入力してください。</div>
+	<form method="post" th:action="@{/doRegisterForm}">
+		氏名:<input type="string" name="name" />
+		年齢:<input type="number" name="age" />
+		住所:<input type="string" name="address" />
+		<input type="submit" value="送信" />
+	</form>
+</body>
+
+</html>

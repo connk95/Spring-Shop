@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<div>トップページ</div>
+	<div th:text="${session.userId}"></div>
+	<a th:href="@{/loginOnSession}">ログイン</a>
+	<a th:href="@{/logout}">ログアウト</a>
+	<br>
+	<a th:href="@{/items/findAll}">全件検索</a>
+	<a th:href="@{/items/findAllByOrderByPriceDesc}">並び替え検索</a>
+	<a th:href="@{/items/findByPrice/100}">価格検索(100)</a>
+	<a th:href="@{/items/findByNameAndPrice/りんご/200}">
+		名前と価格による検索(りんごかつ 200)</a>
+	<a th:href="@{/items/findByNameLike/ん}">曖昧検索(ん)</a>
+	<a th:href="@{/items/getOne/1}">主キー検索(1)</a>
+	<a th:href="@{/items/getOne/3}">主キー検索(3)</a>
+	<br>
+	<a th:href="@{/items/create/input}">登録</a>
+	<a th:href="@{/items/update/input/1}">更新(1)</a>
+
+</body>
+
+</html>
