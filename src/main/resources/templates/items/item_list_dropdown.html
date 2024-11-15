@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<div>ドロップダウンリスト</div>
+	<select name="itemdrop">
+		<option th:each="item: ${items}" th:value="${item.id}" th:text="${item.name}"></option>
+	</select>
+	<div>チェックボックス</div>
+	<div th:each="item: ${items}">
+		<input type="checkbox" th:id="${item.id}">
+		<label th:text="${item.name}"></label>
+	</div>
+	<div>ラジオボタン</div>
+	<div th:each="item :${items}">
+		<input type="radio" name="selectedRadio" th:value="${item.id}" th:text="${item.name}" />
+	</div>
+</body>
+
+</html>

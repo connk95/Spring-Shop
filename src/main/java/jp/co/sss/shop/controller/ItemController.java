@@ -94,4 +94,22 @@ public class ItemController {
 		return "items/item";
 	}
 
+	@GetMapping("/items/delete/input")
+	public String deleteInput(Model model) {
+		model.addAttribute("items", repository.findAll());
+		return "items/delete_input";
+	}
+
+	@PostMapping("/items/delete/complete")
+	public String deleteComplete(ItemForm form) {
+		repository.deleteById(form.getId());
+		return "redirect:/items/findAll";
+	}
+
+	@GetMapping("/items/findAllAndSetDropdown")
+	public String itemListSetDropdown(Model model) {
+		model.addAttribute("items", repository.findAll());
+		return "items/item_list_dropdown";
+	}
+
 }

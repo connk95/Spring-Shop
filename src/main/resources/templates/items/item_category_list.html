@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<div>商品一覧</div>
+	<table>
+		<tr>
+			<th>商品番号</th>
+			<th>商品名</th>
+			<th>価格</th>
+			<th>カテゴリ</th>
+		</tr>
+		<tr th:each="item: ${items}">
+			<td th:text="${item.id}"></td>
+			<td th:text="${item.name}"></td>
+			<td th:text="${item.price}"></td>
+			<td th:text="${item.category.name}"></td>
+		</tr>
+	</table>
+</body>
+
+</html>

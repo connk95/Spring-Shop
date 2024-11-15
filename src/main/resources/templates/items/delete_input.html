@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<div>商品の削除</div>
+	<form method="post" th:action="@{/items/delete/complete}">
+		商品番号:<input type="text" name="id" />
+		<input type="submit" value="削除する" />
+	</form>
+	<br><br>
+	<table>
+		<tr>
+			<th>商品番号</th>
+			<th>商品名</th>
+			<th>価格</th>
+		</tr>
+		<tr th:each="item: ${items}">
+			<td th:text="${item.id}"></td>
+			<td th:text="${item.name}"></td>
+			<td th:text="${item.price}"></td>
+		</tr>
+	</table>
+</body>
+
+</html>
