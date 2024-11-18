@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import jp.co.sss.shop.form.LoginForm;
+import jp.co.sss.shop.form.LoginFormWithAnnotation;
 import jp.co.sss.shop.form.LoginFormWithValidation;
 
 @Controller
@@ -94,6 +95,26 @@ public class SessionController {
 			return "redirect:/";
 		} else {
 			return "session/loginWithValidation";
+		}
+	}
+
+	@GetMapping("/loginWithAnnotation")
+	public String loginWithAnnotation(@ModelAttribute LoginFormWithAnnotation form) {
+		return "session/loginWithAnnotation";
+	}
+	
+	@PostMapping("/loginWithAnnotation")
+	public String doLoginWithAnnotation(@Valid @ModelAttribute LoginFormWithAnnotation form,
+			BindingResult result, HttpSession session) {
+		if (result.hasErrors()) {
+			return "session/loginWithAnnotation";
+		}
+		if (form.getUserId() == 123) {
+			//入力したユーザ ID をセッション属性 userId としてセッションスコープに保存
+			session.setAttribute("userId", form.getUserId());
+			return "redirect:/";
+		} else {
+			return "session/loginWithAnnotation";
 		}
 	}
 
